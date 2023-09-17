@@ -10,6 +10,15 @@ const insertIntoDB = async (req: Request, res: Response, next: NextFunction) => 
     next(err);
   }
 };
+const getAllFromDB = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await AcademicSemesterService.getAllFromDB(req);
+    sendResponse(res, result);
+  } catch (err) {
+    next(err);
+  }
+};
 export const AcademicSemesterController = {
-  insertIntoDB
+  insertIntoDB,
+  getAllFromDB
 };
