@@ -25,11 +25,11 @@ const create = z.object({
 });
 const update = z.object({
   body: z.object({
-    title: z.string().optional(),
-    code: z.string().optional(),
+    title: z.enum([...academicSemesterTitles] as [string, ...string[]]).optional(),
+    code: z.enum([...academicSemesterCodes] as [string, ...string[]]).optional(),
     year: z.number().optional(),
-    startMonth: z.string().optional(),
-    endMonth: z.string().optional()
+    startMonth: z.enum([...academicSemesterMonths] as [string, ...string[]]).optional(),
+    endMonth: z.enum([...academicSemesterMonths] as [string, ...string[]]).optional()
   })
 });
 export const AcademicSemesterValidation = {
