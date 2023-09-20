@@ -12,7 +12,6 @@ const insertIntoDB = async (req: Request): Promise<IGenericResponse> => {
   return response;
 };
 const getAllFromDB = async (req: Request): Promise<IGenericResponse> => {
-  console.log(req.query);
   const response: IGenericResponse = await HttpService.get('/academic-semesters', {
     params: req.query,
     headers: {
@@ -33,8 +32,20 @@ const updateOneIntoDB = async (req: Request): Promise<IGenericResponse> => {
   );
   return response;
 };
+const deleteByIdFromDB = async (req: Request): Promise<IGenericResponse> => {
+  const response: IGenericResponse = await HttpService.delete(
+    `/academic-semesters/${req.params.id}`,
+    {
+      headers: {
+        Authorization: req.headers.authorization
+      }
+    }
+  );
+  return response;
+};
 export const AcademicSemesterService = {
   insertIntoDB,
   getAllFromDB,
-  updateOneIntoDB
+  updateOneIntoDB,
+  deleteByIdFromDB
 };

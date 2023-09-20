@@ -13,7 +13,7 @@ async function bootstrap() {
   const exitHandler = () => {
     if (server) {
       server.close(() => {
-        logger.info('Server closed');
+        logger.info('Server closeddd');
         process.exit(1);
       });
     } else {
