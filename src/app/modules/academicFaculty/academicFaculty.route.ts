@@ -11,16 +11,16 @@ router.post(
   auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
   AcademicFacultyController.insertIntoDB
 );
-// router.get('/', AcademicSemesterController.getAllFromDB);
-// router.patch(
-//   '/:id',
-//   validateRequest(AcademicSemesterValidation.update),
-//   auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
-//   AcademicSemesterController.updateOneIntoDB
-// );
-// router.delete(
-//   '/:id',
-//   auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
-//   AcademicSemesterController.deleteByIdFromDB
-// );
+router.get('/', AcademicFacultyController.getAllFromDB);
+router.patch(
+  '/:id',
+  validateRequest(AcademicFacultyValidation.update),
+  auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
+  AcademicFacultyController.updateOneIntoDB
+);
+router.delete(
+  '/:id',
+  auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
+  AcademicFacultyController.deleteByIdFromDB
+);
 export const academicFacultyRoutes = router;
