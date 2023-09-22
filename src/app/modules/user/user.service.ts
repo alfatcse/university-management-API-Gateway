@@ -16,32 +16,27 @@ const createStudent = async (req: Request, res?: Response, next?: NextFunction) 
   if (academicDepartmentResponse.data && Array.isArray(academicDepartmentResponse.data)) {
     req.body.student.academicDepartment = academicDepartmentResponse.data[0].id;
   }
-  // console.log(academicDepartmentResponse);
+
   const academicFacultyResponse = await AuthService.get(
     `/academic-faculties?syncId=${academicFaculty}`
   );
   if (academicFacultyResponse.data && Array.isArray(academicFacultyResponse.data)) {
     req.body.student.academicFaculty = academicFacultyResponse.data[0].id;
   }
-  // console.log(academicFacultyResponse);
+
   const academicSemesterResponse = await AuthService.get(
     `/academic-semesters?syncId=${academicSemester}`
   );
   if (academicSemesterResponse.data && Array.isArray(academicSemesterResponse.data)) {
     req.body.student.academicSemester = academicSemesterResponse.data[0]._id;
   }
-  console.log(
-    // academicSemesterResponse,
-    // academicDepartmentResponse,
-    // academicFacultyResponse,
-    req.body
-  );
   const response: IGenericResponse = await AuthService.post('/users/create-student', req.body, {
     headers: {
       Authorization: req.headers.authorization
     }
   });
-  // return response;
+
+  return response;
 };
 export const UserService = {
   createStudent
