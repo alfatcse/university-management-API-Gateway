@@ -1,10 +1,9 @@
 import { NextFunction, Request, Response } from 'express';
-import { AcademicSemesterService } from './academicSemester.service';
 import sendResponse from '../../../shared/response';
-
+import { AcademicFacultyService } from './academicFaculty.service';
 const insertIntoDB = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const result = await AcademicSemesterService.insertIntoDB(req);
+    const result = await AcademicFacultyService.insertIntoDB(req);
     sendResponse(res, result);
   } catch (err) {
     next(err);
@@ -12,7 +11,7 @@ const insertIntoDB = async (req: Request, res: Response, next: NextFunction) => 
 };
 const getAllFromDB = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const result = await AcademicSemesterService.getAllFromDB(req);
+    const result = await AcademicFacultyService.getAllFromDB(req);
     sendResponse(res, result);
   } catch (err) {
     next(err);
@@ -20,7 +19,7 @@ const getAllFromDB = async (req: Request, res: Response, next: NextFunction) => 
 };
 const updateOneIntoDB = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const result = await AcademicSemesterService.updateOneIntoDB(req);
+    const result = await AcademicFacultyService.updateOneIntoDB(req);
     sendResponse(res, result);
   } catch (err) {
     next(err);
@@ -29,13 +28,13 @@ const updateOneIntoDB = async (req: Request, res: Response, next: NextFunction) 
 const deleteByIdFromDB = async (req: Request, res: Response, next: NextFunction) => {
   try {
     console.log('req', req.params.id);
-    const result = await AcademicSemesterService.deleteByIdFromDB(req);
+    const result = await AcademicFacultyService.deleteByIdFromDB(req);
     sendResponse(res, result);
   } catch (error) {
     next(error);
   }
 };
-export const AcademicSemesterController = {
+export const AcademicFacultyController = {
   insertIntoDB,
   getAllFromDB,
   updateOneIntoDB,
