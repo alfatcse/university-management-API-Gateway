@@ -13,20 +13,20 @@ router.get('/:id', ManagementDepartmentController.getByIdFromDB);
 router.post(
   '/',
   validateRequest(ManagementDepartmentValidation.create),
-  auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
+  //   auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
   ManagementDepartmentController.insertIntoDB
 );
 
 router.patch(
   '/:id',
   validateRequest(ManagementDepartmentValidation.update),
-  auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
+  //   auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
   ManagementDepartmentController.updateOneInDB
 );
 
 router.delete(
   '/:id',
-  auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
+  //   auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
   ManagementDepartmentController.deleteByIdFromDB
 );
 
