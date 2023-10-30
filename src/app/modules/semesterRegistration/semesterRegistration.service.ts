@@ -23,15 +23,11 @@ const getByIdFromDB = async (req: Request): Promise<IGenericResponse> => {
 };
 
 const insertIntoDB = async (req: Request): Promise<IGenericResponse> => {
-  const response: IGenericResponse = await CoreService.post(
-    `/semester-registrations`,
-    req.body,
-    {
-      headers: {
-        Authorization: req.headers.authorization
-      }
+  const response: IGenericResponse = await CoreService.post(`/semester-registrations`, req.body, {
+    headers: {
+      Authorization: req.headers.authorization
     }
-  );
+  });
   return response;
 };
 
@@ -86,13 +82,14 @@ const startRegistration = async (req: Request): Promise<IGenericResponse> => {
 
 const mySemesterRegistrationCourses = async (req: Request): Promise<IGenericResponse> => {
   const response: IGenericResponse = await CoreService.get(
-    `/semester-registrations/get-my-semsester-courses`,
+    `/semester-registrations/get-my-semester-courses`,
     {
       headers: {
         Authorization: req.headers.authorization
       }
     }
   );
+
   return response;
 };
 
@@ -146,6 +143,7 @@ const startNewSemester = async (req: Request): Promise<IGenericResponse> => {
       }
     }
   );
+
   return response;
 };
 
