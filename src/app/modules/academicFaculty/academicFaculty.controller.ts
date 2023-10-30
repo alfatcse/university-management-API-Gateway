@@ -27,7 +27,7 @@ const updateOneIntoDB = async (req: Request, res: Response, next: NextFunction) 
 };
 const deleteByIdFromDB = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    console.log('req', req.params.id);
+    //console.log('req', req.params.id);
     const result = await AcademicFacultyService.deleteByIdFromDB(req);
     sendResponse(res, result);
   } catch (error) {
