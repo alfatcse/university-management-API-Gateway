@@ -27,12 +27,12 @@ const loginUser = async (req: Request, res: Response, next: NextFunction) => {
 const refreshToken = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const result = await AuthenticationService.refreshToken(req);
-    const cookieOptions = {
-      secure: config.env === 'production',
-      httpOnly: true
-    };
-    const { refreshToken, ...others } = result.data;
-    res.cookie('refreshToken', refreshToken, cookieOptions);
+    // const cookieOptions = {
+    //   secure: config.env === 'production',
+    //   httpOnly: true
+    // };
+    const { ...others } = result.data;
+    // res.cookie('refreshToken', refreshToken, cookieOptions);
     sendResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
