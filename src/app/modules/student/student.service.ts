@@ -19,7 +19,7 @@ const getMyCourses = async (req: Request): Promise<IGenericResponse> => {
       Authorization: req.headers.authorization
     }
   });
-
+  console.log(response);
   return response;
 };
 

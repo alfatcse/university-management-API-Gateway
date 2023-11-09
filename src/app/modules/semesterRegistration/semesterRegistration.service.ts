@@ -129,6 +129,7 @@ const confirmRegistration = async (req: Request): Promise<IGenericResponse> => {
       }
     }
   );
+  console.log('COnfirm Registration:', response);
   return response;
 };
 
