@@ -1,7 +1,6 @@
 import { Request } from 'express';
 import { IGenericResponse } from '../../../interfaces/common';
 import { CoreService } from '../../../shared/axios';
-
 const getAllFromDB = async (req: Request): Promise<IGenericResponse> => {
   const response: IGenericResponse = await CoreService.get('/student-enrolled-course-marks', {
     params: req.query,
@@ -11,7 +10,6 @@ const getAllFromDB = async (req: Request): Promise<IGenericResponse> => {
   });
   return response;
 };
-
 const getStudentMarks = async (req: Request): Promise<IGenericResponse> => {
   const response: IGenericResponse = await CoreService.get(
     '/student-enrolled-course-marks/my-marks',
@@ -24,9 +22,8 @@ const getStudentMarks = async (req: Request): Promise<IGenericResponse> => {
   );
   return response;
 };
-
 const updateMarks = async (req: Request): Promise<IGenericResponse> => {
-  const response: IGenericResponse = await CoreService.post(
+  const response: IGenericResponse = await CoreService.patch(
     `/student-enrolled-course-marks/update-marks`,
     req.body,
     {
@@ -35,11 +32,11 @@ const updateMarks = async (req: Request): Promise<IGenericResponse> => {
       }
     }
   );
+  console.log(response);
   return response;
 };
-
 const updateCourseFinalMarks = async (req: Request): Promise<IGenericResponse> => {
-  const response: IGenericResponse = await CoreService.post(
+  const response: IGenericResponse = await CoreService.patch(
     `/student-enrolled-course-marks/update-final-marks`,
     req.body,
     {
@@ -50,7 +47,6 @@ const updateCourseFinalMarks = async (req: Request): Promise<IGenericResponse> =
   );
   return response;
 };
-
 export const StudentEnrolledCourseMarkService = {
   getAllFromDB,
   getStudentMarks,

@@ -4,7 +4,6 @@ import sendResponse from '../../../shared/response';
 
 const createStudent = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    //console.log('SSSSS', req.body);
     const result = await UserService.createStudent(req);
     sendResponse(res, result);
   } catch (error) {
