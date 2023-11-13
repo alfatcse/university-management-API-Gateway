@@ -13,7 +13,8 @@ const envVarsZodSchema = z.object({
   JWT_SECRET: z.string(),
   REDIS_URL: z.string(),
   AUTH_SERVICE_URL: z.string(),
-  CORE_SERVICE_URL: z.string()
+  CORE_SERVICE_URL: z.string(),
+  PAYMENT_SERVICE_URL: z.string()
 });
 
 const envVars = envVarsZodSchema.parse(process.env);
@@ -28,5 +29,6 @@ export default {
     url: envVars.REDIS_URL
   },
   authServiceUrl: envVars.AUTH_SERVICE_URL,
-  coreServiceUrl: envVars.CORE_SERVICE_URL
+  coreServiceUrl: envVars.CORE_SERVICE_URL,
+  paymentServiceUrl: envVars.PAYMENT_SERVICE_URL
 };

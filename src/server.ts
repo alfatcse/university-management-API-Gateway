@@ -23,7 +23,7 @@ async function bootstrap() {
 
   const unexpectedErrorHandler = (error: unknown) => {
     logger.error(error);
-    console.log('Error::', error);
+
     exitHandler();
   };
 

@@ -48,11 +48,11 @@ const createFaculty = async (req: Request): Promise<IGenericResponse> => {
     req.body.profileImage = uploadedProfileImage.secure_url;
   }
   const { academicDepartment, academicFaculty } = req.body.faculty;
-  console.log(academicDepartment);
+
   const academicDepartmentResponse: IGenericResponse = await AuthService.get(
     `/academic-departments?syncId=${academicDepartment}`
   );
-  console.log(academicDepartmentResponse);
+
   if (academicDepartmentResponse.data && Array.isArray(academicDepartmentResponse.data)) {
     req.body.faculty.academicDepartment = academicDepartmentResponse.data[0].id;
   }
@@ -68,7 +68,7 @@ const createFaculty = async (req: Request): Promise<IGenericResponse> => {
       Authorization: req.headers.authorization
     }
   });
-  console.log(response);
+
   return response;
 };
 const createAdmin = async (req: Request): Promise<IGenericResponse> => {

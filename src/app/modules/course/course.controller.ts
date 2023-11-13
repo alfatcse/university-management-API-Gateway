@@ -21,7 +21,6 @@ const getByIdFromDB = async (req: Request, res: Response, next: NextFunction) =>
 };
 const insertIntoDB = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    //console.log(req.body);
     const result = await RoomService.insertIntoDB(req);
     sendResponse(res, result);
   } catch (error) {
