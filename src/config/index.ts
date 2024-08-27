@@ -12,6 +12,7 @@ const envVarsZodSchema = z.object({
     .refine((val) => Number(val)),
   JWT_SECRET: z.string(),
   REDIS_URL: z.string(),
+  REDIS_PASS: z.string(),
   AUTH_SERVICE_URL: z.string(),
   CORE_SERVICE_URL: z.string(),
   PAYMENT_SERVICE_URL: z.string()
@@ -26,7 +27,8 @@ export default {
     secret: envVars.JWT_SECRET
   },
   redis: {
-    url: envVars.REDIS_URL
+    url: envVars.REDIS_URL,
+    pass:envVars.REDIS_PASS
   },
   authServiceUrl: envVars.AUTH_SERVICE_URL,
   coreServiceUrl: envVars.CORE_SERVICE_URL,
