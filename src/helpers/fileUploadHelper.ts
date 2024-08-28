@@ -4,9 +4,9 @@ import multer from 'multer';
 import { ICloudinaryResponse, IUploadFile } from '../interfaces/file';
 
 cloudinary.config({
-  cloud_name: 'dmsgdonea',
-  api_key: '391324688223571',
-  api_secret: 'erpoZ9Ltg5g0yMxNed6eL63KSVA'
+  cloud_name: 'dfxq0017s',
+  api_key: '883465672187638',
+  api_secret: '6ElhAst1y60P-GfYxFCW44Qauxg'
 });
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
