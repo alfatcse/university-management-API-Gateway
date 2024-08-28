@@ -32,7 +32,7 @@ const getByIdFromDB = async (req: Request): Promise<IGenericResponse> => {
 
 const updateOneInDB = async (req: Request): Promise<IGenericResponse> => {
   const { id } = req.params;
-  //console.log(id);
+
   const response: IGenericResponse = await HttpService.patch(
     `/academic-departments/${id}`,
     req.body,

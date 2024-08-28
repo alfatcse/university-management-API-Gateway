@@ -32,7 +32,7 @@ const updateMarks = async (req: Request): Promise<IGenericResponse> => {
       }
     }
   );
-  console.log(response);
+
   return response;
 };
 const updateCourseFinalMarks = async (req: Request): Promise<IGenericResponse> => {

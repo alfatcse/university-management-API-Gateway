@@ -4,7 +4,7 @@ import config from '../config';
 const HttpService = (baseUrl: string): AxiosInstance => {
   const instance = axios.create({
     baseURL: baseUrl,
-    timeout: 1000,
+    timeout: 10000,
     headers: {
       'Content-type': 'application/json'
     }
@@ -29,4 +29,5 @@ const HttpService = (baseUrl: string): AxiosInstance => {
 };
 const AuthService = HttpService(config.authServiceUrl);
 const CoreService = HttpService(config.coreServiceUrl);
-export { AuthService, CoreService };
+const PaymentService = HttpService(config.paymentServiceUrl);
+export { AuthService, CoreService, PaymentService };

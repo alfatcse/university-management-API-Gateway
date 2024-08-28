@@ -14,6 +14,7 @@ const getMyPayment = async (req: Request, res: Response, next: NextFunction) => 
 const initiatePayment = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const result = await StudentSemesterPaymentService.initiatePayment(req);
+
     sendResponse(res, result);
   } catch (error) {
     next(error);
@@ -28,9 +29,12 @@ const completePayment = async (req: Request, res: Response, next: NextFunction) 
     next(error);
   }
 };
-
+const init = async (req: Request, res: Response, next: NextFunction) => {
+  console.log('init');
+};
 export const StudentSemesterPaymentController = {
   getMyPayment,
   initiatePayment,
-  completePayment
+  completePayment,
+  init
 };

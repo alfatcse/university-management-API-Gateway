@@ -9,7 +9,7 @@ const auth =
   async (req: any, res: Response, next: NextFunction) => {
     return new Promise(async (resolve, reject) => {
       const token = req.headers.authorization;
-      console.log(token);
+
       if (!token) {
         return reject(new ApiError(httpStatus.UNAUTHORIZED, 'Unauthorized'));
       }
@@ -21,9 +21,7 @@ const auth =
       }
 
       req.user = verifiedUser;
-      console.log(requiredRoles.length);
       if (requiredRoles.length && !requiredRoles.includes(verifiedUser.role)) {
-        console.log('fffor');
         return reject(new ApiError(httpStatus.FORBIDDEN, 'Forbidden'));
       }
 
