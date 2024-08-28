@@ -1,4 +1,5 @@
 export type IUploadFile = {
+  buffer(buffer: any): unknown;
   fieldname: string;
   originalname: string;
   encoding: string;
