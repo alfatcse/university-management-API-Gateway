@@ -29,9 +29,9 @@ const uploadToCloudinary = async (file: IUploadFile): Promise<ICloudinaryRespons
         resolve(result);
       }
     });
-
+    const buffer = file.buffer as unknown as Buffer;
     // Upload directly from the buffer using streamifier
-    streamifier.createReadStream(file.buffer).pipe(uploadStream);
+    streamifier.createReadStream(buffer).pipe(uploadStream);
   });
 };
 export const FileUploadHelper = {
