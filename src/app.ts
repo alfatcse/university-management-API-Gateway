@@ -7,7 +7,7 @@ import routes from './app/routes';
 
 const app: Application = express();
 
-app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
+app.use(cors({ origin: 'https://university-management-frontend-pdlf.onrender.com', credentials: true }));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
